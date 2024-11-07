@@ -2,19 +2,23 @@ import { Request, Response } from "express";
 import stripe from "../config/stripe";
 
 export async function createPayment(req: Request, res: Response) {
+  const data = {
+    email: "gsbloogs14@gmail.com",
+    object: "source"
+  }
   const { amount, currency, source } = req.body;
 
   try {
     stripe.customers
       .create({
-        email: req.body.email,
+        email: data.email,
         source: req.body.stripeToken,
       })
       .then((customer) =>
         stripe.charges.create({
           amount: amount * 100,
           currency,
-          source,
+          source
         })
       )
       .then(() => res.render("../views/success.html"))

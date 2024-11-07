@@ -4,21 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Buy me a coffee</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="flex justify-center mt-32">
-      <h1>Buy me a coffee</h1>
-      <form action="/charge" method="POST">
+  <body class="bg-gray-200">
+    <h1>User loggeg: gsbloogs14@gmail.com</h1>
+    <div class="flex justify-center align-items mt-32">
+      <form action="/charge" class="flex flex-col align-start w-64" method="POST">
+        <h1 class="text-lg font-bold">Buy me a coffee ☕🍞</h1>
         <label for="email">Email:</label>
         <input type="email" name="email" placeholder="Email" />
         <label for="amount">$</label>
         <input type="number" name="amount" value="5" />
         <div id="payment-card"></div>
         <div id="payment-errors"></div>
-        <button>Submit</button>
+        <button class="bg-green-200 my-3 py-2 rounded text-gray-800 font-semibold">Submit</button>
       </form>
     </div>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="payment.js"></script>
+    <script src="_payment.ts"></script>
   </body>
 </html>
